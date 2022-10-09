@@ -60,7 +60,7 @@ const server =app.listen(puerto,()=>{
 server.on('error',(error) => console.log(`Error en servidor ${error}`))
 
 class Contenedor {
-    productos
+    // productos
     
 
         constructor(){
