@@ -42,7 +42,7 @@ app.get('/',(req,res) => {
 });
 
 app.get('/hola',(req,res) => {
-    res.json({mensaje:'Hola Mundo',ruta: 'Pido la ruta /hola'});
+    res.json(obtenerMensaje());
 });
 
 app.get('/productoRandom',(req,res) => {
