@@ -4,12 +4,16 @@ const path = require('path');
 
 const filePath  = path.resolve(__dirname, '../../productos.json')
 
+// const viewsFolderPath = path.resolve(__dirname, '../../productos.json');
+
+
 const rutaProducto = Router()
 
 const middleWareEndpointParticular = (req, res, next) => {
 	console.log('ESTO SE EJECUTA SOLAMEMTE CON EL GET ALL')
 	next();
 }
+
 
 
 rutaProducto.get('/', middleWareEndpointParticular, async (req, res) => {
@@ -72,10 +76,15 @@ rutaProducto.post('/', async (req, res) => {
 
 	await fs.writeFile(filePath, JSON.stringify(productos, null, '\t'));
 
-	res.json({
-		msg: 'ok',
-		data: nuevoProduccto
-	})
+	// res.json({
+	// 	msg: 'ok',
+	// 	data: nuevoProduccto
+	// })
+	
+	res.writeHead(301, {
+		Location: `/`
+	}).end();
+
 });
 
 rutaProducto.put('/:id', async (req, res) => {
